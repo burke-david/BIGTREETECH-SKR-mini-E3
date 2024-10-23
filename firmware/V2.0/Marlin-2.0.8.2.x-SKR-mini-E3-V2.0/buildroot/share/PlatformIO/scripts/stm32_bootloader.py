@@ -20,6 +20,8 @@ def noencrypt(source, target, env):
 if 'offset' in board.get("build").keys():
 	LD_FLASH_OFFSET = board.get("build.offset")
 	marlin.relocate_vtab(LD_FLASH_OFFSET)
+	# echo out the value of build.offset
+	print("LD_FLASH_OFFSET: " + LD_FLASH_OFFSET)
 
 	# Flash size
 	maximum_flash_size = int(board.get("upload.maximum_size") / 1024)
